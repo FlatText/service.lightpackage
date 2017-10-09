@@ -45,7 +45,7 @@ class lightpack:
 		return status
 		
 	def connect(self):
-		try: 	#Try to connect to the server API
+		try: 	# Try to connect to the server API
 			self.connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 			self.connection.connect((self.host, self.port))			
 			self.__readResult()
@@ -57,7 +57,7 @@ class lightpack:
 				print "Lightpack API server is missing"
 				return -1
 		
-	def setColor(self, n, r, g, b): 	# Set color to the define LED		
+	def setColor(self, n, r, g, b): 	# Set color to the defined LED		
 		cmd = 'setcolor:{0}-{1},{2},{3}\n'.format(self.ledMap[n-1], r, g, b)
 		self.connection.send(cmd)
 		self.__readResult()
